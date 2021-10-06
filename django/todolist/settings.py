@@ -65,14 +65,14 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 
 DATABASES = {
     "default": {
-        "HOST": config(DATABASE_URL),
+        "HOST": os.environ['DATABASE_URL'],
         "USER": "application",
         "NAME": "todolist",
         "ENGINE": 'django_iam_dbauth.aws.postgresql',
         "OPTIONS": {
             "use_iam_auth": True,
             "sslmode": "require",
-            "region_name": config(AWS_REGION)
+            "region_name": os.environ['AWS_REGION']
         }
     }
 }
