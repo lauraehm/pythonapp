@@ -61,6 +61,7 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+
 DATABASES = {
     "default": {
         "HOST": "pepito-aurora-workshop-4.cluster-cynjynn6hacb.us-east-1.rds.amazonaws.com",
