@@ -9,7 +9,7 @@ WORKDIR /project
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY ./django-todolist .
+COPY ./django .
 RUN pip install -r requirements.txt
 
-CMD gunicorn --bind 0.0.0.0:8000 dockertest.wsgi
+CMD gunicorn --bind 0.0.0.0:8000 todolist.wsgi
