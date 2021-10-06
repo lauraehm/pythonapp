@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -21,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = "@e2(yx)v&tgh3_s=0yja-i!dpebxsz^dg47x)-k&kq_3zf*9e*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -64,14 +65,14 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 
 DATABASES = {
     "default": {
-        "HOST": "pepito-aurora-workshop-4.cluster-cynjynn6hacb.us-east-1.rds.amazonaws.com",
+        "HOST": config(DATABASE_URL),
         "USER": "application",
         "NAME": "todolist",
         "ENGINE": 'django_iam_dbauth.aws.postgresql',
         "OPTIONS": {
             "use_iam_auth": True,
             "sslmode": "require",
-            "region_name": "us-east-1"
+            "region_name": config(REGION)
         }
     }
 }
@@ -94,7 +95,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = "/static/"
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
 
 
 # Login settings

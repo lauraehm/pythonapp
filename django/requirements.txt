@@ -7,3 +7,5 @@ sqlparse==0.4.2
 PyMySQL
 django-iam-dbauth
 psycopg2-binary
+python-decouple
+whitenoise
