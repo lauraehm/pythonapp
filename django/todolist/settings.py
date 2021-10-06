@@ -70,7 +70,8 @@ DATABASES = {
         "ENGINE": 'django_iam_dbauth.aws.postgresql',
         "OPTIONS": {
             "use_iam_auth": True,
-            "sslmode": "require", 
+            "sslmode": "require",
+            "region_name": "us-east-1"
         }
     }
 }
