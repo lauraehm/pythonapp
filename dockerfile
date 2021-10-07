@@ -12,4 +12,5 @@ ENV PYTHONUNBUFFERED 1
 COPY ./django .
 RUN pip install -r requirements.txt
 
+CMD python manage.py collectstatic
 CMD gunicorn --bind 0.0.0.0:8000 todolist.wsgi
