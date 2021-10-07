@@ -1,5 +1,8 @@
 FROM python:3
 
+ARG DATABASE_URL
+ARG AWS_REGION
+
 RUN apt-get update
 # RUN apt-get install -y nginx
 # RUN apt-get install -y netcat
